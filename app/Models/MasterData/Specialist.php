@@ -30,6 +30,6 @@ class Specialist extends Model
 
     public function doctor()
     {
-        return $this->hasOne('App\Models\Operational\Doctor', 'specialist_id');
+        return $this->hasMany('App\Models\Operational\Doctor', 'specialist_id');
     }
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\ManajementAccess;
+namespace App\Models\ManagementAccess;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class RoleUser extends Model
+class PermissionRole extends Model
 {
     //use HasFactory;
     use SoftDeletes;
 
 
-    public $table = 'role_user';
+    public $table = 'permission_role';
 
     protected $dates = [
         'updated_at',
@@ -21,7 +21,7 @@ class RoleUser extends Model
     ];
 
     protected $fillable = [
-        'user_id',
+        'permission_id',
         'role_id',
         'created_at',
         'updated_at',
@@ -29,13 +29,13 @@ class RoleUser extends Model
     ];
 
     // one to many
-    public function user()
-    {
-        return $this->belongsTo('App\Models\user', 'user_id', 'id');
-    }
-
     public function role()
     {
         return $this->belongsTo('App\Models\ManagementAccess\Role', 'role_id', 'id');
+    }
+
+    public function permission()
+    {
+        return $this->belongsTo('App\Models\ManagementAccess\Permission', 'permission_id', 'id');
     }
 }

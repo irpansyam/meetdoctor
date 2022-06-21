@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\ManajementAccess;
+namespace App\Models\ManagementAccess;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,6 +41,6 @@ class DetailUser extends Model
 
     public function type_user()
     {
-        return $this->belongsTo('App\MasterData\type_user', 'type_user_id', 'id');
+        return $this->belongsTo('App\Models\MasterData\Type_user', 'type_user_id', 'id');
     }
 }

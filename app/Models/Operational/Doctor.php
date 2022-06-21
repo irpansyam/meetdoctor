@@ -38,11 +38,11 @@ class Doctor extends Model
 
     public function specialist()
     {
-        return $this->hasOne('App\Models\MasterData\Specialist', 'specialist_id');
+        return $this->belongsTo('App\Models\MasterData\Specialist', 'specialist_id', 'id');
     }
 
     public function appointment()
     {
-        return $this->belongsTo('App\Models\Operational\Appointment', 'doctor_id');
+        return $this->hasMany('App\Models\Operational\Appointment', 'doctor_id');
     }
 }

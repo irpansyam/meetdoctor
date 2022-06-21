@@ -35,21 +35,21 @@ class Appointment extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\user', 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
     public function transaction()
     {
-        return $this->hasOne('App\Models\Operational\Transaction', 'appointmentr_id');
+        return $this->hasMany('App\Models\Operational\Transaction', 'appointment_id');
     }
 
     public function doctor()
     {
-        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id');
+        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id', 'id');
     }
 
     public function consultation()
     {
-        return $this->hasOne('App\Models\MasterData\Consultation', 'consultation_id');
+        return $this->belongsTo('App\Models\MasterData\Consultation', 'consultation_id', 'id');
     }
 }

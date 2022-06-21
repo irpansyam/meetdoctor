@@ -29,6 +29,6 @@ class Consultation extends Model
 
     public function appointment()
     {
-        return $this->hasOne('App\Models\Operational\Appointment', 'consultation_id');
+        return $this->hasMany('App\Models\Operational\Appointment', 'consultation_id');
     }
 }

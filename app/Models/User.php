@@ -85,14 +85,15 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Operational\Doctor', 'user_id');
     }
 
-    public function appointment()
-    {
-        return $this->hasOne('App\Models\Operational\Appointment', 'user_id');
-    }
 
     // one to many
     public function role_user()
     {
         return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
     }
 }
