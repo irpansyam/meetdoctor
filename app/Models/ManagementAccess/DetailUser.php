@@ -41,6 +41,6 @@ class DetailUser extends Model
 
     public function type_user()
     {
-        return $this->belongsTo('App\Models\MasterData\Type_user', 'type_user_id', 'id');
+        return $this->belongsTo('App\Models\MasterData\TypeUser', 'type_user_id', 'id');
     }
 }
